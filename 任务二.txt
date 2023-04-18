@@ -1,0 +1,58 @@
+using System;
+
+public class Car
+{
+    protected string brand;
+    protected string color;
+    protected int speed;
+
+    public Car(string brand, string color, int speed)
+    {
+        this.brand = brand;
+        this.color = color;
+        this.speed = speed;
+    }
+
+    public virtual void showinfo()
+    {
+        Console.WriteLine("品牌：{0}，颜色：{1}，时速：{2} km/h", brand, color, speed);
+    }
+}
+
+public class Taxis : Car
+{
+    private int price;
+
+    public int Price
+    {
+        get { return price; }
+        set { price = value; }
+    }
+
+    public Taxis(string brand, string color, int speed, int price) : base(brand, color, speed)
+    {
+        this.price = price;
+    }
+
+    public int money(int distance)
+    {
+        return price * distance;
+    }
+
+    public new void showinfo()
+    {
+        Console.WriteLine("品牌：{0}，颜色：{1}，时速：{2} km/h，每公里收费：{3} 元", brand, color, speed, price);
+    }
+}
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        Taxis taxi1 = new Taxis("宝马", "黑色", 120, 5);
+        taxi1.showinfo();
+        Console.WriteLine("行驶10公里的车费为：{0} 元", taxi1.money(10));
+
+        Console.ReadKey();
+    }
+}

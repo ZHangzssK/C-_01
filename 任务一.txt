@@ -1,0 +1,56 @@
+using System;
+
+public class Sum
+{
+    private int d1, d2, d3;
+
+    public Sum(int d1, int d2, int d3)
+    {
+        this.d1 = d1;
+        this.d2 = d2;
+        this.d3 = d3;
+    }
+
+    public int add(int a, int b)
+    {
+        return a + b;
+    }
+
+    public int add(int a, int b, int c)
+    {
+        return a + b + c;
+    }
+}
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        Console.WriteLine("请选择操作：1. 两个数求和 2. 三个数求和");
+        int choice = int.Parse(Console.ReadLine());
+
+        if (choice == 1)
+        {
+            Console.WriteLine("请输入两个整数：");
+            int a = int.Parse(Console.ReadLine());
+            int b = int.Parse(Console.ReadLine());
+            Sum s = new Sum(0, 0, 0);
+            Console.WriteLine("两数之和为：" + s.add(a, b));
+        }
+        else if (choice == 2)
+        {
+            Console.WriteLine("请输入三个整数：");
+            int a = int.Parse(Console.ReadLine());
+            int b = int.Parse(Console.ReadLine());
+            int c = int.Parse(Console.ReadLine());
+            Sum s = new Sum(0, 0, 0);
+            Console.WriteLine("三数之和为：" + s.add(a, b, c));
+        }
+        else
+        {
+            Console.WriteLine("错误的选择！");
+        }
+
+        Console.ReadKey();
+    }
+}
